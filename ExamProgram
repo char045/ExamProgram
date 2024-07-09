@@ -1,0 +1,73 @@
+public class ExamProgram {
+    
+    // Function to count the number of coursework assessments done
+    public static int countCourseworkAssessments() {
+        // Simulating the count of coursework assessments done
+        int courseworkDone = 0;
+        // Assuming coursework assessments are stored in an array or list
+        String[] coursework = {"ass1", "ass2", "ass3", "cat1", "cat2"};
+        for (String assessment : coursework) {
+            // Check if assessment is done (e.g., completed or graded)
+            // For simulation purposes, we assume it's done if not null or empty
+            if (assessment != null && !assessment.isEmpty()) {
+                courseworkDone++;
+            }
+        }
+        return courseworkDone;
+    }
+    
+    // Function to determine if student has done 2/3 of coursework
+    public static boolean determineCourseworkCompletion(int courseworkDone) {
+        // Assuming total possible coursework assessments in DIT409 is 5
+        int totalCoursework = 5;
+        double requiredCoursework = totalCoursework * 2.0 / 3.0;
+        return courseworkDone >= requiredCoursework;
+    }
+    
+    // Function to view coursework results (placeholder implementation)
+    public static void viewCourseworkResults() {
+        System.out.println("Viewing coursework results...");
+        // Placeholder for actual coursework results viewing logic
+    }
+    
+    // Function to view exam results (placeholder implementation)
+    public static void viewExamResults() {
+        System.out.println("Viewing exam results...");
+        // Placeholder for actual exam results viewing logic
+    }
+    
+    public static void main(String[] args) {
+        int choice = 0;
+        
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. View coursework results");
+            System.out.println("2. View exam results");
+            System.out.println("3. Exit the program");
+            
+            // Simulating user input - you may replace with actual input mechanism
+            choice = 1;  // Example: Assume user chooses option 1
+            
+            switch (choice) {
+                case 1:
+                    int courseworkDone = countCourseworkAssessments();
+                    if (determineCourseworkCompletion(courseworkDone)) {
+                        viewCourseworkResults();
+                    } else {
+                        System.out.println("You need to repeat the coursework.");
+                    }
+                    break;
+                case 2:
+                    viewExamResults();
+                    break;
+                case 3:
+                    System.out.println("Exiting the program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number from 1 to 3.");
+                    break;
+            }
+            
+        } while (choice != 3);
+    }
+}
